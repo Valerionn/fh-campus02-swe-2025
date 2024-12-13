@@ -27,6 +27,9 @@ public class CalculatorImpl implements Calculator {
                     throw new CalculatorException("Division by zero");
                 return c;
             case modulo:
+                if (b == 0) { // Prüfe den Divisor direkt
+                    throw new CalculatorException("Modulo by zero");
+                }
                 return a % b;
             case mul:
                 return a * b;
@@ -37,7 +40,7 @@ public class CalculatorImpl implements Calculator {
     @Override
     public double pop() throws CalculatorException {
         if (stack_.isEmpty())
-            throw new CalculatorException();
+            throw new CalculatorException("Zu Wenig Input");
         return stack_.pop();
     }
 
