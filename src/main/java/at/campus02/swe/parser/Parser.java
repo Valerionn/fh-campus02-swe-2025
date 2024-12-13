@@ -80,5 +80,6 @@ public class Parser {
             return Operation.sub;
 
         throw new CalculatorException("Unsupported Operation!");
+
     }
 }
