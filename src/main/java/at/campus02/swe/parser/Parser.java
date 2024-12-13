@@ -79,6 +79,7 @@ public class Parser {
         else if ("-".equals(value))
             return Operation.sub;
 
+		//fixed typo
         throw new CalculatorException("Unsupported Operation!");
     }
 }
