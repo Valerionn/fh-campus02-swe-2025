@@ -78,10 +78,9 @@ public class Parser {
             return Operation.div;
         else if ("-".equals(value))
             return Operation.sub;
-
-
-		//fixed typo
-      throw new CalculatorException("Unsupported Operation!");
+		    else if ("%".equals(value))
+			      return Operation.mod;
+  
+    throw new CalculatorException("Unsupported Operation!");
+    }
 }
-}
-
