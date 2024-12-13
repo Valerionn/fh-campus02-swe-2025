@@ -9,6 +9,8 @@ import at.campus02.swe.Calculator;
 import at.campus02.swe.CalculatorException;
 import at.campus02.swe.Calculator.Operation;
 
+import java.rmi.server.ExportException;
+
 public class CalculatorTest {
 
     @Test
@@ -51,6 +53,63 @@ public class CalculatorTest {
         assertEquals(3, result, 0);
 
     }
+
+    @Test
+    public void testSimpleModuloOperation() throws Exception {
+        Calculator calc = new CalculatorImpl();
+        calc.push(10);
+        calc.push(4);
+        double result = calc.perform(Operation.modulo);
+
+        assertEquals(2,result,0);
+
+
+
+    }
+    @Test
+    public void testSimpleModuloOperation2() throws Exception {
+        Calculator calc = new CalculatorImpl();
+        calc.push(8);
+        calc.push(10);
+        double result = calc.perform(Operation.modulo);
+
+        assertEquals(8,result,0);
+
+
+
+    }
+    @Test
+    public void testModuloWithInsufficientOperands() throws Exception {
+        Calculator calc = new CalculatorImpl();
+        calc.push(10); // Nur ein Operand auf dem Stack
+
+        try {
+            calc.perform(Operation.modulo);
+            fail("Exception expected due to insufficient operands");
+        } catch (CalculatorException e) {
+            assertEquals("Zu Wenig Input", e.getMessage());
+        }
+    }
+    @Test
+    public void testModuloByZero() throws Exception {
+
+        //Setup
+        Calculator calc = new CalculatorImpl();
+        try {
+            calc.push(2);
+            calc.push(0);
+            calc.perform(Operation.modulo);
+
+            fail("Exception expected");
+
+
+        } catch (CalculatorException e) {
+            assertEquals("Modulo by zero", e.getMessage());
+            // e.getCause()
+        }
+
+    }
+
 
 
 
