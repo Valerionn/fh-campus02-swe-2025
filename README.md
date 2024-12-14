@@ -1,2 +1,2 @@
 # Stack Calculator
-Gruppe x
+Gruppe 1
