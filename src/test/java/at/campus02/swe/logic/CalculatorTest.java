@@ -110,6 +110,26 @@ public class CalculatorTest {
 
     }
 
+    @Test
+    public void SimpleCosOperation() throws Exception {
+
+        //Setup
+        Calculator cal = new CalculatorImpl();
+            cal.push(0);
+            assertEquals(1 ,cal.perform(Operation.cos), 0.1);
+
+    }
+
+    @Test
+    public void SimpleSinOperation() throws Exception {
+
+        //Setup
+        Calculator cal = new CalculatorImpl();
+        cal.push(1);
+        assertEquals(0.8 ,cal.perform(Operation.sin), 0.1);
+
+    }
+
 
 
 

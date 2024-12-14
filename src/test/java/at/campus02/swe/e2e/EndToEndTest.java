@@ -36,4 +36,25 @@ public class EndToEndTest {
         assertEquals(6, parser.parse(new File("src/test/resources/test07.xml")), 0);
 
     }
+
+
+    @Test
+    public void testParserTest08Xml() throws Exception {
+        CalculatorImpl cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+
+        assertEquals(1, parser.parse(new File("src/test/resources/test08.xml")), 0.1);
+
+    }
+
+    @Test
+    public void testParserTest09Xml() throws Exception {
+        CalculatorImpl cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+
+        assertEquals(0, parser.parse(new File("src/test/resources/test09.xml")), 0.1);
+
+    }
 }
