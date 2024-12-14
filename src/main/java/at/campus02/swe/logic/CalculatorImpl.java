@@ -21,6 +21,7 @@ public class CalculatorImpl implements Calculator {
         {double c = pop();
             return Math.sin(c);}
 
+
         else {
         double b = pop();
         double a = pop();
