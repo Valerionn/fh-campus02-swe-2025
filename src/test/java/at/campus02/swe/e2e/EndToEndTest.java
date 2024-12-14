@@ -22,8 +22,6 @@ public class EndToEndTest {
 
         Parser parser = new Parser(cal);
 
-        //parser.parse(new File("src/test/resources/test06.xml"));
-
         assertEquals(3, parser.parse(new File("src/test/resources/test06.xml")), 0);
 
     }
@@ -34,8 +32,6 @@ public class EndToEndTest {
         CalculatorImpl cal = new CalculatorImpl();
 
         Parser parser = new Parser(cal);
-
-        //parser.parse(new File("src/test/resources/test06.xml"));
 
         assertEquals(6, parser.parse(new File("src/test/resources/test07.xml")), 0);
 
