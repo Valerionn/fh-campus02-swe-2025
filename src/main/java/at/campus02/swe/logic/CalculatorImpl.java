@@ -13,6 +13,15 @@ public class CalculatorImpl implements Calculator {
     @Override
     public double perform(Operation op) throws CalculatorException {
 
+        if (op.equals(Operation.cos))
+        {double c = pop();
+            return Math.cos(c);}
+
+        if (op.equals(Operation.sin))
+        {double c = pop();
+            return Math.sin(c);}
+
+        else {
         double b = pop();
         double a = pop();
 
@@ -34,7 +43,7 @@ public class CalculatorImpl implements Calculator {
             case mul:
                 return a * b;
         }
-        return 0;
+        return 0;}
     }
 
     @Override
