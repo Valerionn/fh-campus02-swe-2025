@@ -15,13 +15,11 @@ public class CalculatorImpl implements Calculator {
 
         if (op.equals(Operation.cos))
         {double c = pop();
-            return Math.cos(c);
-        }
+            return Math.cos(c);}
 
         if (op.equals(Operation.sin))
         {double c = pop();
-            return Math.sin(c);
-        }
+            return Math.sin(c);}
 
 
 

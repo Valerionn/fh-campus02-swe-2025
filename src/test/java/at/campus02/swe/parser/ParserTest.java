@@ -45,7 +45,6 @@ public class ParserTest {
         verify(cal).perform(Operation.add);
 
 
-
         verifyNoMoreInteractions(cal);
     }
 
@@ -68,11 +67,10 @@ public class ParserTest {
     }
 
 
-
     // Division by Zero Test (vgl Calc Klasse)
 
 
-    // Test auf unerlaubte Zeichen statt erforderlichem Modulo Operator
+    // Test auf unerlaubte Zeichen, anstelle von erforderlichem Modulo Operator
 
     @Test()
     public void testParserInvalidOperator() throws Exception {
@@ -87,6 +85,81 @@ public class ParserTest {
         } catch (CalculatorException e) {
             assertEquals("Unsupported Operation!", e.getMessage());
         }
+
+    }
+
+    // keine negativen (sin & cos) spezifischen Tests möglich
+
+    /*
+    @Test
+    public void testSinOperation() throws Exception {
+
+        Calculator calculator = new CalculatorImpl();
+        Parser parser = new Parser(calculator);
+
+        try {
+            parser.parse(new File("src/test/resources/test08.xml"));
+
+            fail("Exception with Sinus Calculation expected.");
+        }
+        catch (CalculatorException e){
+
+     */
+
+
+    // Endlich funktionierende Tests:
+
+    @Test
+    public void testParserTest03Xml() throws Exception {
+
+        CalculatorImpl cal = new CalculatorImpl();
+        Parser parser = new Parser(cal);
+
+        assertEquals(0.0, parser.parse(new File("src/test/resources/test09.xml")), 0.1);
+
+        // verifyNoMoreInteractions(cal);
+    }
+
+    @Test
+    public void testParserTest04Xml() throws Exception {
+
+        CalculatorImpl cal = new CalculatorImpl();
+        Parser parser = new Parser(cal);
+
+        assertEquals(1, parser.parse(new File("src/test/resources/test08.xml")), 0.1);
+
+    }
+
+    // 2 Stunden lang nicht funktionierende Tests viable nach Wiedereinfügen von verify() Methoden
+
+
+    @Test
+    public void testParserTest05Xml() throws Exception {
+
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/test09.xml"));
+
+        verify(cal).push(0);
+        verify(cal).perform(Operation.sin);
+
+        verifyNoMoreInteractions(cal);
+    }
+
+
+    @Test
+    public void testParserTest06Xml() throws Exception {
+
+        Calculator cal = mock(Calculator.class);
+
+        Parser parser = new Parser(cal);
+        parser.parse(new File("src/test/resources/test08.xml"));
+
+        verify(cal).push(0);
+        verify(cal).perform(Operation.cos);
+
+        verifyNoMoreInteractions(cal);
 
     }
 
