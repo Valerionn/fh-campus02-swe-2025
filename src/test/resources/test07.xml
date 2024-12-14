@@ -2,7 +2,8 @@
 <calculation>
     <push value="1" />
     <push value="2" />
+    <operation value="+" />
+    <push value="Result" />
     <push value="3" />
-    <pop/>
     <operation value="+" />
 </calculation>

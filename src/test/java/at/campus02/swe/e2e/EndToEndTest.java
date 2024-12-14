@@ -17,17 +17,27 @@ import java.io.File;
 public class EndToEndTest {
 
     @Test
-    public void testParserTest01Xml() throws Exception {
+    public void testParserTest06Xml() throws Exception {
         CalculatorImpl cal = new CalculatorImpl();
 
         Parser parser = new Parser(cal);
 
-        parser.parse(new File("src/test/resources/test06.xml"));
+        //parser.parse(new File("src/test/resources/test06.xml"));
 
-        cal.push(1.0);
-        cal.push(2.0);
-        assertEquals(3, cal.perform(Operation.add), 0);
+        assertEquals(3, parser.parse(new File("src/test/resources/test06.xml")), 0);
 
+    }
+
+
+    @Test
+    public void testParserTest07Xml() throws Exception {
+        CalculatorImpl cal = new CalculatorImpl();
+
+        Parser parser = new Parser(cal);
+
+        //parser.parse(new File("src/test/resources/test06.xml"));
+
+        assertEquals(6, parser.parse(new File("src/test/resources/test07.xml")), 0);
 
     }
 }
