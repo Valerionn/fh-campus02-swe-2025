@@ -130,6 +130,30 @@ public class CalculatorTest {
 
     }
 
+    @Test
+    public void SkalarProdukt() throws Exception {
+
+        //Setup
+        Calculator cal = new CalculatorImpl();
+        //
+        cal.push(5);
+        //b
+        cal.push(31);
+        cal.push(2);
+        cal.push(3);
+        cal.push(4);
+        cal.push(5);
+        //a
+        cal.push(115);
+        cal.push(15);
+        cal.push(51);
+        cal.push(15);
+        cal.push(151);
+        assertEquals(0.8 ,cal.perform(Operation.sin), 0.1);
+
+    }
+
+
 
 
 
